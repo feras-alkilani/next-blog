@@ -1,10 +1,17 @@
-@import "tailwindcss";
+/* src/app/globals.css */
 
+/* تحميل الأساسيات، المكونات، والفئات المساعدة من Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* تعريف المتغيرات */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* تخصيص السمة */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,6 +19,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* تخصيص السمة عند تفضيل الوضع المظلم */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,6 +27,7 @@
   }
 }
 
+/* تخصيص الأنماط الخاصة بالجسم */
 body {
   background: var(--background);
   color: var(--foreground);
