@@ -2,14 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* تحميل الخطوط */
-@import url("https://geists.com/fonts.css");
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: "Geist Sans", sans-serif;
-  --font-mono: "Geist Mono", monospace;
+  --font-sans: sans-serif;
+  --font-mono: monospace;
 }
 
 @media (prefers-color-scheme: dark) {

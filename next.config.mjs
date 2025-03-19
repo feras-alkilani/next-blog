@@ -1,12 +1,4 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const nextConfig = {
-  reactStrictMode: true,
-  env: {
-    MONGODB_URI: process.env.MONGODB_URI
-  }
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
 
 export default nextConfig;
