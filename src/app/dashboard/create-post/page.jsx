@@ -16,7 +16,7 @@ import {
   ref,
   uploadBytesResumable
 } from "firebase/storage";
-// import { app } from "@/firebase";
+import { app } from "@/firebase";
 
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -39,7 +39,7 @@ export default function CreatePostPage() {
         return;
       }
       setImageUploadError(null);
-      //   const storage = getStorage(app);
+      const storage = getStorage(app);
       const fileName = new Date().getTime() + "-" + file.name;
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, file);
