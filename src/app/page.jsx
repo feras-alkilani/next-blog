@@ -4,16 +4,29 @@ import RecentPosts from "./components/RecentPosts";
 
 export default async function Home() {
   let posts = null;
+  const url = process.env.URL || "http://localhost:3000"; // fallback to localhost if undefined
+
   try {
-    const result = await fetch(process.env.URL + "/api/post/get", {
+    const result = await fetch(`${url}/api/post/get`, {
       method: "POST",
       body: JSON.stringify({ limit: 9, order: "desc" }),
-      cache: "no-store"
+      cache: "no-store",
+      headers: {
+        "Content-Type": "application/json"
+      }
     });
+
+    // إذا كان الخادم يعيد شيئًا غير JSON
+    if (!result.ok) {
+      const textResponse = await result.text();
+      console.log("Error response text:", textResponse);
+      throw new Error(`Server error: ${result.status}`);
+    }
+
     const data = await result.json();
     posts = data.posts;
   } catch (error) {
-    console.log("Error getting post:", error);
+    console.log("Error getting post:", error.message);
   }
   return (
     <div className="flex flex-col justify-center items-center">

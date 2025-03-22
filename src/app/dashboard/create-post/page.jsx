@@ -32,7 +32,7 @@ export default function CreatePostPage() {
   const router = useRouter();
   console.log(formData);
 
-  const handleUpdloadImage = async () => {
+  const handleUploadImage = async () => {
     try {
       if (!file) {
         setImageUploadError("Please select an image");
@@ -140,7 +140,7 @@ export default function CreatePostPage() {
               gradientDuoTone="purpleToBlue"
               size="sm"
               outline
-              onClick={handleUpdloadImage}
+              onClick={handleUploadImage}
               disabled={imageUploadProgress}
             >
               {imageUploadProgress ? (
